@@ -51,10 +51,12 @@ public struct NetworkingLoggerPlugin: NetworkingPlugin {
     
     public func body<Service: NetworkingService>(service: Service, event: NetworkingPluginEvent, encoder: JSONEncoder, decoder: JSONDecoder) {
         #if DEBUG
-        let log = logElements
-            .compactMap { $0.logValue(service: service, event: event, encoder: encoder, decoder: decoder) }
-            .joined(separator: " - ")
-        print(log)
+        DispatchQueue.global(qos: .background).async {
+            let log = logElements
+                .compactMap { $0.logValue(service: service, event: event, encoder: encoder, decoder: decoder) }
+                .joined(separator: " - ")
+            print(log)
+        }
         #endif
     }
     
