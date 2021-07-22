@@ -47,7 +47,7 @@ public struct NetworkingLoggerPlugin: NetworkingPlugin {
     /// Initializes the plugin with information on what the user wants to log to console.
     ///
     /// - Parameter elements: Array of `Element` enum. Based on values in this array information is being logged. Order and duplication of values does matter.
-    public init(elements: [Element] = [.date, .libraryName, .emoji, .statusCode, .httpMethod, .url, .headers, .data]) {
+    public init(elements: [Element] = [.date, .icon, .libraryName, .emoji, .statusCode, .httpMethod, .url, .headers, .data]) {
         logElements = elements
     }
     
