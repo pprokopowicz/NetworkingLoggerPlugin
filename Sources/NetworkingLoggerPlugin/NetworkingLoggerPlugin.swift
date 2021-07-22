@@ -15,6 +15,8 @@ public struct NetworkingLoggerPlugin: NetworkingPlugin {
     public enum Element {
         /// Responsible for logging date of an event. Example "2020-10-02 17:44:37 +0000".
         case date
+        /// Emoji character used as icon.
+        case icon
         /// Responsible for logging name of this library. Can be used to filter logs in the console.
         case libraryName
         /// Emoji character used distinguish failure from success.

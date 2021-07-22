@@ -14,12 +14,15 @@ extension NetworkingLoggerPlugin.Element {
         static let libraryName: String = "Networking"
         static let successEmoji: String = "🟢"
         static let failureEmoji: String = "🔴"
+        static let icon: String = "🌎"
     }
     
     func dataRequestedLogValue<Service: NetworkingService>(service: Service, event: NetworkingPluginEvent, encoder: JSONEncoder) -> String? {
         switch self {
         case .date:
             return "\(Date())"
+        case .icon:
+            return Constants.icon
         case .libraryName:
             return Constants.libraryName
         case .emoji:
@@ -42,6 +45,8 @@ extension NetworkingLoggerPlugin.Element {
         switch self {
         case .date:
             return "\(Date())"
+        case .icon:
+            return Constants.icon
         case .libraryName:
             return Constants.libraryName
         case .emoji:
@@ -63,6 +68,8 @@ extension NetworkingLoggerPlugin.Element {
         switch self {
         case .date:
             return "\(Date())"
+        case .icon:
+            return Constants.icon
         case .libraryName:
             return Constants.libraryName
         case .emoji:
@@ -84,6 +91,8 @@ extension NetworkingLoggerPlugin.Element {
         switch self {
         case .date:
             return "\(Date())"
+        case .icon:
+            return Constants.icon
         case .libraryName:
             return Constants.libraryName
         case .emoji:
