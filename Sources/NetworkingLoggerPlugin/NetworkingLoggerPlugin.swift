@@ -34,10 +34,16 @@ public struct NetworkingLoggerPlugin: NetworkingPlugin {
         
         fileprivate func logValue<Service: NetworkingService>(service: Service, event: NetworkingPluginEvent, encoder: JSONEncoder, decoder: JSONDecoder) -> String? {
             switch event {
-            case .dataRequested: return dataRequestedLogValue(service: service, event: event, encoder: encoder)
-            case .unableToParseRequest: return unableToParseRequestLogValue(service: service, event: event)
-            case .responseError(let data, let status): return responseErrorLogValue(service: service, event: event, data: data, status: status)
-            case .success(let data, let status): return successLogValue(service: service, event: event, data: data, status: status)
+            case .dataRequested:
+                return dataRequestedLogValue(service: service, event: event, encoder: encoder)
+            case .unableToParseRequest:
+                return unableToParseRequestLogValue(service: service, event: event)
+            case .responseError(let data, let status):
+                return responseErrorLogValue(service: service, event: event, data: data, status: status)
+            case .success(let data, let status):
+                return successLogValue(service: service, event: event, data: data, status: status)
+            @unknown default:
+                return nil
             }
         }
     }

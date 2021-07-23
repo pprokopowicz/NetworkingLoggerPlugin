@@ -15,13 +15,13 @@ let package = Package(
             targets: ["NetworkingLoggerPlugin"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/pprokopowicz/Networking.git", from: "0.0.1")
+        .package(url: "https://github.com/pprokopowicz/Networking.git", from: "0.3.0")
     ],
     targets: [
         .target(
             name: "NetworkingLoggerPlugin",
             dependencies: [
-                .product(name: "Networking", package: "Networking")
+                .product(name: "NetworkingBinary", package: "Networking")
             ]),
         .testTarget(
             name: "NetworkingLoggerPluginTests",
